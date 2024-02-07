@@ -1,0 +1,5 @@
+{% load static %}
+<h1>Супер!</h1>
+<p>{% if name %}{{name}}{% endif %} благодарим вас, форма успешно отправлена.</p>
+
+<script src="{% static 'humans/js/redirect_home.js' %}" data-redirect-url="{% url 'home' %}"></script>

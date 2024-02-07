@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="icon" href="{% static 'humans/images/logo.ico' %}" type="image/x-icon">
+    <style>
+        .no-underline {
+            text-decoration: none;
+        }
+
+        .no-marker {
+            list-style-type: none;
+        }
+
+        /* Стили для расположения сайдбара слева */
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        aside {
+            width: 200px;
+        }
+
+        /* Стили для раскраски фона элементов */
+        header {
+            background-color: #eaeaea; /* Серый цвет */
+        }
+
+        aside {
+            background-color: #f4f4f4; /* Светло-серый цвет */
+        }
+
+        main {
+            background-color: #ffffff; /* Белый цвет */
+        }
+
+        footer {
+            background-color: #36c7c7;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <!-- Навигационное меню -->
+    <nav>
+        <!-- Код навигационного меню -->
+        <ul>
+            <img src="{% static 'humans/images/logo.jpg' %}" alt="Логотип" style="width: 3%; height: auto;">
+
+            {% for i in menu %}
+            <a href="{% url i.url_name %}"><span>{{ i.desc }}</span></a>&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+            {% for i in login_menu %}
+            <a href="{% url i.url_name %}"><span>{{ i.desc }}</span></a>&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <aside>
+        <!-- Сайдбар -->
+        <div class="sidebar">
+            {% if user.is_authenticated %}
+            <h4>Привет, {{ user.username }}!</h4>
+            {% endif %}
+            <h4><a href="{% url 'home' %}">Все темы:</a></h4>
+            {% for i in cats %}
+            <li class="no-marker">
+                {% if current_cat == i.pk %}
+                <p><i>{{i}}</i></p>
+                {% else %}
+                <a href="{{i.get_absolute_url}}" class="no-underline"><b>{{i}}</b></a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </div>
+    </aside>
+
+    <main>
+        <!-- Содержимое страницы -->
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</div>
+
+<footer>
+    <!-- Подвал -->
+    <p>Все права защищены.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'humans/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for error in form.non_field_errors %}
+    <div class="error">{{ error }}</div>
+    {% endfor %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+{% endblock %}

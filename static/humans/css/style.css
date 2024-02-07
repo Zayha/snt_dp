@@ -1,0 +1,18 @@
+/*.logo {*/
+/*  flex: 0 0 auto; !* Логотип не растягивается *!*/
+/*}*/
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-left: 20px; /* Регулируйте отступ в зависимости от нужного вам значения */
+  align-self: flex-start;
+}
+
+.login-menu {
+  margin-right: 15px; /* Регулируйте отступ в зависимости от нужного вам значения */
+}

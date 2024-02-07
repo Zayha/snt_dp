@@ -1,0 +1,3 @@
+url = 'http://192.168.1.36:8123/api/states/sensor.sonoff_1001dfd2d5_voltage'
+url_v = 'http://192.168.1.36:8123/api/history/period/2023-06-07T00%3A00%3A00.000Z?filter_entity_id=sensor.sonoff_1001dfd2d5_voltage'
+hat = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxMDkxNzllYjIyMGU0YTgxYTczNTg2NTU4N2Y0OGRkMSIsImlhdCI6MTY4MzMwMzMyMiwiZXhwIjoxOTk4NjYzMzIyfQ.H1bQbZ-gVoGEhjmKPG1ClIQYFQua81SjPIxeFjGV-yw'

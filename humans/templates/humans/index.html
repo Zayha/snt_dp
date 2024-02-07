@@ -1,0 +1,10 @@
+{% extends 'humans/base.html' %}
+{% load static %}
+
+{% block content %}
+{% for p in posts %}
+<h3>{{p.title}} - {{p.time_create|date:"d.m.Y"}}</h3>
+<a href="{{p.get_absolute_url}}"><p>{{p.content|truncatewords:5}}</p></a>
+<hr>
+{% endfor %}
+{% endblock %}
